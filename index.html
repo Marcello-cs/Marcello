@@ -1,43 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Love, Maryorie ❤️</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #ffe4e1;
-            padding: 50px;
-        }
-        h1 {
-            color: #ff69b4;
-            font-size: 3em;
-        }
-        p {
-            color: #555;
-            font-size: 1.2em;
-        }
-        .heart {
-            font-size: 50px;
-            animation: heartbeat 1s infinite;
-        }
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Love, Maryorie ❤️</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #ffe4e1;
+      padding: 50px;
+      margin: 0;
+      position: relative; /* For absolutely positioned elements */
+    }
+    h1 {
+      color: #ff69b4;
+      font-size: 3em;
+    }
+    p {
+      color: #555;
+      font-size: 1.2em;
+    }
+    .heart {
+      font-size: 50px;
+      animation: heartbeat 1s infinite;
+    }
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    /* Invitation Section Styles */
+    .invitation {
+      margin-top: 50px;
+      font-size: 1.5em;
+      color: #333;
+    }
+    .invitation span {
+      font-style: italic;
+      font-size: 0.8em;
+      color: #777;
+    }
+    /* Button Container Styles */
+    .button-container {
+      margin-top: 20px;
+    }
+    .button-container button {
+      font-size: 1em;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+    }
+    /* Date Menu (Itinerary) Styles */
+    .menu {
+      margin: 30px auto;
+      display: none; /* Hidden by default */
+      text-align: left;
+      border: 2px solid #ff69b4;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #fff0f5;
+      max-width: 500px;
+    }
+    .menu h2 {
+      text-align: center;
+      color: #ff69b4;
+      margin-bottom: 20px;
+    }
+    .menu-item {
+      margin-bottom: 15px;
+    }
+    .menu-item h3 {
+      margin: 0;
+      font-size: 1.2em;
+      color: #333;
+    }
+    .menu-item p {
+      margin: 5px 0 0 0;
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-    <h1>For My Love Maryorieeeee ❤️</h1>
-    <p>You make my world brighter every day! 🌸</p>
-    <p class="heart">💖💖💖</p>
-</body>
-<audio autoplay loop>
-    <source src="https://voca.ro/16NRQv3GS8Em" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
+  <!-- Original Love Message -->
+  <h1>For My Love Maryorieeeee ❤️</h1>
+  <p>You make my world brighter every day and I want you FOREVER!</p>
+  <p class="heart">💖💖💖</p>
 
+  <!-- Invitation Section -->
+  <div class="invitation">
+    <p>
+      <strong>Will you go on a date with me?</strong>
+      <span>* it took me a year to say this *</span>
+    </p>
+  </div>
+
+  <!-- Button Container -->
+  <div class="button-container">
+    <button id="yesButton">Yes!</button>
+    <button id="marryButton">I will marry you right now</button>
+    <button id="noButton">No</button>
+  </div>
+
+  <!-- Date Itinerary Menu -->
+  <div class="menu" id="dateMenu">
+    <h2>Date Itinerary</h2>
+    <div class="menu-item">
+      <h3>Appetizer: Morning Coffee</h3>
+      <p><em>Time:</em> 9:00 AM</p>
+      <p>Start our day with a warm cup of coffee at our favorite café.</p>
+    </div>
+    <div class="menu-item">
+      <h3>Main Course: Lunch at the Bistro</h3>
+      <p><em>Time:</em> 12:30 PM</p>
+      <p>Enjoy a delightful meal with lots of laughter and stories.</p>
+    </div>
+    <div class="menu-item">
+      <h3>Dessert: Park Stroll</h3>
+      <p><em>Time:</em> 3:00 PM</p>
+      <p>A relaxing walk to enjoy the beauty of nature and each other's company.</p>
+    </div>
+    <div class="menu-item">
+      <h3>After-Dinner: Star Gazing</h3>
+      <p><em>Time:</em> 9:00 PM</p>
+      <p>Lay under the stars and dream about our future adventures.</p>
+    </div>
+  </div>
+
+  <!-- Background Audio -->
+  <audio loop>
+    <source src="https://voca.ro/16NRQv3GS8Em" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- JavaScript for interactivity -->
+  <script>
+    // Get references to elements
+    const yesButton = document.getElementById('yesButton');
+    const marryButton = document.getElementById('marryButton');
+    const noButton = document.getElementById('noButton');
+    const dateMenu = document.getElementById('dateMenu');
+    const invitation = document.querySelector('.invitation');
+    const buttonContainer = document.querySelector('.button-container');
+    const audioElement = document.querySelector('audio');
+
+    // Function to show the date itinerary menu and hide invitation/buttons
+    function showMenu(extraOption) {
+      dateMenu.style.display = 'block';
+      invitation.style.display = 'none';
+      buttonContainer.style.display = 'none';
+      // If extraOption is true, add the "Get Married" item
+      if (extraOption) {
+        const extraItem = document.createElement('div');
+        extraItem.classList.add('menu-item');
+        extraItem.innerHTML = `
+          <h3>Special: Get Married</h3>
+          <p><em>Time:</em> Forever!</p>
+          <p>This is the beginning of our happily ever after.</p>
+        `;
+        dateMenu.appendChild(extraItem);
+      }
+    }
+
+    // Yes button event: show menu normally and play audio on click
+    yesButton.addEventListener('click', function() {
+      audioElement.play().catch(err => console.log(err));
+      showMenu(false);
+    });
+
+    // Marry button event: show menu with extra "Get Married" option and play audio
+    marryButton.addEventListener('click', function() {
+      audioElement.play().catch(err => console.log(err));
+      showMenu(true);
+    });
+
+    // No button event: move the button to a random position when hovered or clicked
+    function moveNoButton() {
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      const randomX = Math.floor(Math.random() * (viewportWidth - noButton.offsetWidth));
+      const randomY = Math.floor(Math.random() * (viewportHeight - noButton.offsetHeight));
+      noButton.style.position = 'absolute';
+      noButton.style.left = randomX + 'px';
+      noButton.style.top = randomY + 'px';
+    }
+    noButton.addEventListener('mouseover', moveNoButton);
+    noButton.addEventListener('click', moveNoButton);
+  </script>
+</body>
 </html>
+
